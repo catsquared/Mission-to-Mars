@@ -11,6 +11,7 @@
     />
   </head>
   <body>
+
     <div class="container">
       <!-- Add Jumbotron to Header -->
       <div class="jumbotron text-center">
@@ -21,12 +22,16 @@
 
       <!-- Add section for Mars News -->
       <div class="row" id="mars-news">
-        <div class="col-md-12">
-          <div class="media">
-            <div class="media-body">
-              <h2>Latest Mars News</h2>
-              <h4 class="media-heading">{{ mars.news_title }}</h4>
-              <p>{{ mars.news_paragraph }}</p>
+        <div class="col-xs-18">
+          <div class = "well">
+            <div class="media">
+              <div class="media-body">
+                <h2>Latest Mars News</h2>
+                <h4 class="media-heading">{{ mars.news_title }}</h4>
+  
+                <!-- Add a bootstrap component -->
+                <p class="bg-info">{{ mars.news_paragraph }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -34,7 +39,7 @@
 
       <!-- Section for Featured Image and Facts table -->
       <div class="row" id="mars-featured-image">
-        <div class="col-md-8">
+        <div class="col-xs-12">
           <h2>Featured Mars Image</h2>
 
           <!-- if images is False/None/non-existent, then default to error message -->
@@ -44,15 +49,17 @@
             alt="Responsive image"
           />
         </div>
+      </div>
 
-        <div class="col-md-4">
-          <!-- Mars Facts -->
-          <div class="row" id="mars-facts">
+      <!-- Mars Facts -->
+
+      <div class = "row" id = "mars-facts">
+        <div class="col-xs-12">
             <h4>Mars Facts</h4>
             {{ mars.facts | safe }}
-          </div>
         </div>
       </div>
+     
 
       <!-- Section for Mars Hemispheres -->
       <div class="row" id="mars-hemispheres">
@@ -61,11 +68,12 @@
         </div>
         
         {% for hemisphere in mars.hemisphere_image_urls %}
-        <div class="col-md-6">
+        <div class="col-xs-6">
           <div class="thumbnail">
+            <!-- Add a bootstrap component -->
             <img
               src="{{hemisphere.img_url | default('static/images/error.png', true)}}"
-              class = "img-responsive"
+              class = "img-rounded"
               alt="Responsive image"
               />
             <div class="caption">
